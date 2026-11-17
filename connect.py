@@ -1,9 +1,17 @@
 import sqlite3 as sql
+import os
+from pathlib import Path
 
-dbCon = sql.connect("/home/kos/Coding/projects/board_games/board_games_data.db")
+BASE_DIR = Path(__file__).resolve().parent
+
+DB_PATH = os.environ.get(
+    "DB_PATH",
+    str(BASE_DIR / "board_games_data.db")
+)
+
+dbCon = sql.connect(DB_PATH)
 dbCursor = dbCon.cursor()
 
-# ADDED: Create the table if it doesn't exist
 dbCursor.execute("""
 CREATE TABLE IF NOT EXISTS board_games_data (
     board_game_id INTEGER PRIMARY KEY AUTOINCREMENT,
