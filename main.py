@@ -18,7 +18,7 @@ def mainOptions():
     return options
 
 def reportOptions():
-    options = 1
+    options = ""
     optionList = ["1","2","3","4"]
     userChoises = "Reports Menu Options\nEnter:\n1. game name.\n2. game type.\n3. game designer.\n4. Exit"
     while options not in optionList:
@@ -50,7 +50,7 @@ while mainProgram:
             elif reportsMenu == "2":
                 reports.bgType()
             elif reportsMenu == "3":
-                reports.bgDesigner
+                reports.bgDesigner()
             else:
                 reportsProgram = False
                 input(f"Press enter to exit")
